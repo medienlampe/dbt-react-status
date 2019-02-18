@@ -1,6 +1,7 @@
 import React, { Component, Fragment as F } from "react";
 import Header from "./components/Header";
 import Logo from "./components/Logo";
+import GitlabStatus from "./components/GitlabStatus";
 import "./App.css";
 
 class App extends Component {
@@ -8,7 +9,10 @@ class App extends Component {
     return (
       <F>
         <Header />
-        <Logo />
+        <main>
+          <Logo />
+          <GitlabStatus />
+        </main>
       </F>
     );
   }
