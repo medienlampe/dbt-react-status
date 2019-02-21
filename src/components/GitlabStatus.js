@@ -6,7 +6,7 @@ function GitLabStatusText() {
 
   async function updateGitlabStatus() {
     const result = await axios.get(
-      "https://gitlab.l.invia.lan/api/v4/groups/53",
+      process.env.REACT_APP_GITLAB_ROUTE + "/api/v4/groups/53",
       {
         headers: {
           "PRIVATE-TOKEN": process.env.REACT_APP_GITLAB_TOKEN
