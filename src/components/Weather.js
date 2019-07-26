@@ -26,12 +26,21 @@ export default function Clock(props) {
   });
 
   if (weather) {
+    let cloudData = weather.clouds.all;
+    let cloudStatus = "wolkenlos";
+
+    if (cloudData > 10 && cloudData < 25) {
+      cloudStatus = "leicht bedeckt";
+    } else if (cloudData > 25 && cloudData < 50) {
+      cloudStatus = "bedeckt";
+    } else {
+      cloudStatus = "wolkig";
+    }
+
     return (
       <div id="weather">
         Wetter in {weather.name}: {Math.ceil(weather.main.temp)}°C,{" "}
-        {weather.clouds.all < 10
-          ? "wolkenlos"
-          : weather.clouds.all + "% bewölkt"}
+        {cloudStatus}
       </div>
     );
   }
